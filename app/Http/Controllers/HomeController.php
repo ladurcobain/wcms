@@ -12,6 +12,7 @@ class HomeController extends Controller
 {
     private $title = "Beranda";
     private $subtitle = "";
+    private $version  = "1.0.1";
 
     public function index($slug="")
     {
@@ -19,7 +20,12 @@ class HomeController extends Controller
         if($slug != "") {
             $uri = Curl::endpoint();
             $url = $uri .'/'.'v1/get-home';
-            $param = array('slug' => $slug);
+            
+            $param = array(
+                'slug'    => $slug,
+                'version' => $this->version
+            );
+
             $res = Curl::requestPost($url, $param);
             
             if($res->status == true) {

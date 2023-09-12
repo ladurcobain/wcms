@@ -86,14 +86,14 @@ function submitRating() {
 	</div>
     <div class="body">
         <?php if($pattern) {
-            $repeat = (($is_cover == 1)?'background-repeat: no-repeat;background-size: cover;':'background-repeat: repeat');
-            $bg_pattern = 'style="margin: 0;background-image: url('. $pattern .');height: 100vh;background-repeat: '. $repeat .';"';
+            $repeat = (($is_cover == 1)?'background-position: center;background-repeat:no-repeat':'background-repeat:repeat');
+            $bg_pattern = 'style="margin: 0;background-image: url('. $pattern .');'. $repeat .';"';
         } else {
             $bg_pattern = 'style="background:#FFF;"';
         } ?>
 
         <?php if($is_cover == 1) { ?>
-        <header id="header" class="header-transparent" data-plugin-options="{'stickyEffect': 'shrink', 'stickyEnabled': true, 'stickyEnableOnBoxed': false, 'stickyEnableOnMobile': false, 'stickyStartAt': 700, 'stickySetTop': '-60px', 'stickyChangeLogo': true, 'stickyHeaderContainerHeight': 175}">
+        <header id="header" class="header-transparent" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': false, 'stickyEnableOnMobile': false, 'stickyStartAt': 300, 'stickyChangeLogo': true, 'stickyHeaderContainerHeight': 175}">
         <?php } else { ?>
         <header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 10, 'stickySetTop': '-60px', 'stickyChangeLogo': true}">
         <?php } ?>
@@ -242,7 +242,7 @@ function submitRating() {
         <div role="main" class="main" <?php echo $bg_background; ?>>
             <?php 
                 if($is_cover == 1) { 
-                    $section = '<section style="box-sizing: border-box;background-image: url('. $pattern .');background-size: cover; height: 100vh;"></section>';
+                    $section = '<section style="height: 300px !important;box-sizing: border-box;background-image: url('. $pattern .');background-repeat: no-repeat;background-position: center;height: 100vh;"></section>';
                 } else {
                     $section = '';
                 }

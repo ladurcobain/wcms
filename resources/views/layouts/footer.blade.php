@@ -151,7 +151,7 @@
         <div class="container py-2">
             <div class="row py-4">
                 <div class="col d-flex align-items-center justify-content-center">
-                    <p style="font-weight: bold;font-size: 14px;">&copy; Hak Cipta 2023. Kejaksaan Republik Indonesia.</p>
+                    <p style="font-weight: bold;font-size: 14px;">&copy; Hak Cipta 2023 - V.<?php echo $profile->satker_version; ?>. Kejaksaan Republik Indonesia.</p>
                 </div>
             </div>
         </div>

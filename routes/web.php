@@ -51,7 +51,8 @@ use App\Http\Controllers\ArchiveMovieController;
 
 
 
-Route::get('/', [LandingController::class, 'index'])->name('index');
+//Route::get('/', [LandingController::class, 'index'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 //Route::get('/{slug}', [LandingController::class, 'index'])->name('index');
 Route::get('error', [ErrorController::class, 'index'])->name('error.index');
 

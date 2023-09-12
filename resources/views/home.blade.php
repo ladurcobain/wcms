@@ -7,7 +7,7 @@
 
 <?php if($banner != []) { ?>
 <div class="owl-carousel owl-carousel-light owl-carousel-light-init-fadeIn owl-theme manual dots-inside dots-horizontal-center show-dots-hover dots-light nav-style-1 nav-inside nav-inside-plus nav-dark nav-lg nav-font-size-lg show-nav-hover mb-0"
-    data-plugin-options="{'autoplayTimeout': 7000}" data-dynamic-height="['700px','700px','700px','550px','500px']"
+    data-plugin-options="{'autoplayTimeout': 6000}" data-dynamic-height="['700px','700px','700px','550px','500px']"
     style="height: 700px;">
     <div class="owl-stage-outer">
         <div class="owl-stage">
@@ -35,11 +35,30 @@
                 </div>
             </div>
             <?php endforeach; ?>
+            <?php if(count($banner) == 1) { ?>
+            <div class="owl-item position-relative overflow-hidden">
+                <div class="background-image-wrapper position-absolute top-0 left-0 right-0 bottom-0" data-appear-animation="kenBurnsToRight" data-appear-animation-duration="3s" data-plugin-options="{'minWindowWidth': 0}" data-carousel-onchange-show style="background-color: #EDEDED !important; background-size: cover; background-position: center;"></div>
+                <div class="container position-relative z-index-3 h-100">
+                    <div class="row justify-content-center align-items-center h-100">
+                        <div class="col-lg-7">
+                            <div class="d-flex flex-column align-items-center">
+                                <h3 class="text-color-dark font-weight-extra-bold text-12-5 line-height-1 text-center mb-3 appear-animation" data-plugin-animated-letters data-plugin-options="{'startDelay': 1000, 'minWindowWidth': 0, 'animationSpeed': 30}"">{{ str_replace("-", " ", config('app.name')) }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
         </div>
     </div>
     <div class="owl-dots mb-5">
-        <button role="button" class="owl-dot active"><span></span></button>
-        <button role="button" class="owl-dot"><span></span></button>
+        <?php 
+            $i=0;
+            foreach($banner as $row) : 
+                $i=$i+1;
+        ?>
+        <button role="button" class="owl-dot <?php echo (($i==1)?'active':''); ?>"><span></span></button>
+        <?php endforeach; ?>
     </div>
 </div>
 <?php } ?>
