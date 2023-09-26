@@ -33,6 +33,7 @@ class LandingController extends Controller
                 $data['pattern']    = $info->profile->satker_pattern;
                 $data['is_cover']   = $info->profile->is_cover;
                 $data['background'] = $info->profile->satker_background;
+                $data['overlay']    = $info->profile->satker_overlay;
 
                 Session::put('meta_url', url()->full());
                 Session::put('meta_title', (($this->title != "")? $this->title : $this->title));

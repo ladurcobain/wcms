@@ -75,6 +75,7 @@ class ArchiveRegulationController extends Controller
                         $data['pattern']    = $info->profile->satker_pattern;
                         $data['is_cover']   = $info->profile->is_cover;
                         $data['background'] = $info->profile->satker_background;
+                        $data['overlay']    = $info->profile->satker_overlay;
 
                         return view('archive.regulation', $data, compact('info', 'results'));
                     }

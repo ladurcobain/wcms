@@ -217,4 +217,176 @@ class Status
         $icon = Status::medsosIcon($string);
         return $icon;
     }
+
+    public static function loadingOverlay($value) {
+        switch($value) {
+            case 1 :
+                $string = 'Percentage Progress 1';
+            break;
+            case 2 :
+                $string = 'Percentage Progress 2';
+            break;
+            case 3 :
+                $string = 'Cubes';
+            break;
+            case 4 :
+                $string = 'Cube Progress';
+            break;
+            case 5 :
+                $string = 'Float Rings';
+            break;
+            case 6 :
+                $string = 'Float Bars';
+            break;
+            case 7 :
+                $string = 'Speeding Wheel';
+            break;
+            case 8 :
+                $string = 'Zenith';
+            break;
+            case 9 :
+                $string = 'Spinning Square';
+            break;
+            case 10 :
+                $string = 'Pulse';
+            break;
+            
+            default :
+                $string = 'Default';
+            break;
+        }
+
+        return $string;
+    }
+
+    public static function loadingContent($value) {
+        $str = "";
+        if($value == 1) {
+            $str .= '
+                <div class="loading-overlay loading-overlay-percentage">
+                    <div class="page-loader-progress-wrapper">
+                        <span class="page-loader-progress">0</span>
+                        <span class="page-loader-progress-symbol">%</span>
+                    </div>
+                </div>
+            ';
+        }
+        else if($value == 2) {
+            $str .= '
+                <div class="loading-overlay loading-overlay-percentage loading-overlay-percentage-effect-2">
+                    <div class="loading-overlay-background-layer"></div>
+                    <div class="page-loader-progress-wrapper">
+                        <span class="page-loader-progress">0</span>
+                        <span class="page-loader-progress-symbol">%</span>
+                    </div>
+                </div>
+            ';
+        }
+        else if($value == 3) {
+            $str .= '
+                <div class="loading-overlay">
+                    <div class="bounce-loader">
+                        <div class="cssload-thecube">
+                            <div class="cssload-cube cssload-c1"></div>
+                            <div class="cssload-cube cssload-c2"></div>
+                            <div class="cssload-cube cssload-c4"></div>
+                            <div class="cssload-cube cssload-c3"></div>
+                        </div>
+                    </div>
+                </div>
+            ';
+        }
+        else if($value == 4) {
+            $str .= '
+                <div class="loading-overlay">
+                    <div class="bounce-loader">
+                        <span class="cssload-cube-progress">
+                            <span class="cssload-cube-progress-inner"></span>
+                        </span>
+                    </div>
+                </div>
+            ';
+        }
+        else if($value == 5) {
+            $str .= '
+                <div class="loading-overlay">
+                    <div class="bounce-loader">
+                        <div class="cssload-float-rings-loader">
+                            <div class="cssload-float-rings-inner cssload-one"></div>
+                            <div class="cssload-float-rings-inner cssload-two"></div>
+                            <div class="cssload-float-rings-inner cssload-three"></div>
+                        </div>
+                    </div>
+                </div>
+            ';
+        }
+        else if($value == 6) {
+            $str .= '
+                <div class="loading-overlay">
+                    <div class="bounce-loader">
+                        <div class="cssload-float-bars-container">
+                            <ul class="cssload-float-bars-flex-container">
+                                <li><span class="cssload-float-bars-loading"></span></li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ';
+        }
+        else if($value == 7) {
+            $str .= '
+                <div class="loading-overlay">
+                    <div class="bounce-loader">
+                        <div class="cssload-speeding-wheel-container">
+                            <div class="cssload-speeding-wheel"></div>
+                        </div>
+                    </div>
+                </div>
+            ';
+        }
+        else if($value == 8) {
+            $str .= '
+                <div class="loading-overlay">
+                    <div class="bounce-loader">
+                        <div class="cssload-zenith-container">
+                            <div class="cssload-zenith"></div>
+                        </div>
+                    </div>
+                </div>
+            ';
+        }
+        else if($value == 9) {
+            $str .= '
+                <div class="loading-overlay">
+                    <div class="bounce-loader">
+                        <div class="cssload-spinning-square-loading"></div>
+                    </div>
+                </div
+            ';
+        }
+        else if($value == 10) {
+            $str .= '
+                <div class="loading-overlay">
+                    <div class="bounce-loader">
+                        <div class="wrapper-pulse">
+                            <div class="cssload-pulse-loader"></div>
+                        </div>
+                    </div>
+                </div>
+            ';
+        }
+        else {
+            $str .= '
+                <div class="loading-overlay">
+                    <div class="bounce-loader">
+                        <div class="bounce1"></div>
+                        <div class="bounce2"></div>
+                        <div class="bounce3"></div>
+                    </div>
+                </div>
+            ';
+        }
+
+        return $str;
+    }
 }
