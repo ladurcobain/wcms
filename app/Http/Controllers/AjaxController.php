@@ -1,14 +1,15 @@
 <?php
-    
+
 namespace App\Http\Controllers;
-    
+
+use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
 use App\Helpers\Curl;
 use Session;
-    
+
 class AjaxController extends Controller
 {
-    
+
     public function set_flag($val)
     {
         Session::put('flag', $val);
@@ -21,30 +22,28 @@ class AjaxController extends Controller
         //$slug  = $request->slug;
         $email = $request->newsletterEmail;
 
-        if(($slug != "") && ($email != "")) {
-            if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (($slug != "") && ($email != "")) {
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $uri = Curl::endpoint();
-                $url = $uri .'/'.'v1/set-newsletter';
+                $url = $uri . '/' . 'v1/set-newsletter';
                 $param = array(
                     'slug'  => $slug,
                     'email' => $email
                 );
-                
+
                 $res = Curl::requestPost($url, $param);
-                
+
                 $status  = $res->status;
                 $message = $res->message;
-            }
-            else {
+            } else {
                 $status  = false;
                 $message = "Kesalahan format surel";
             }
-        }
-        else {
+        } else {
             $status  = false;
             $message = "Form isian harap di lengkapi";
         }
-        
+
         $data = array(
             "status"  => $status,
             "message" => $message,
@@ -63,10 +62,10 @@ class AjaxController extends Controller
         $message = $request->message;
         $module  = $request->module;
 
-        if(($slug != "") && ($name != "") && ($email != "") && ($subject != "") && ($message != "")) {
-            if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (($slug != "") && ($name != "") && ($email != "") && ($subject != "") && ($message != "")) {
+            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $uri = Curl::endpoint();
-                $url = $uri .'/'.'v1/set-contactus';
+                $url = $uri . '/' . 'v1/set-contactus';
                 $param = array(
                     'slug'    => $slug,
                     'name'    => $name,
@@ -74,34 +73,31 @@ class AjaxController extends Controller
                     'subject' => $subject,
                     'message' => $message
                 );
-                
+
                 $res = Curl::requestPost($url, $param);
-                
+
                 $status  = 'success';
                 $message = $res->message;
-            }
-            else {
+            } else {
                 $status  = "error";
                 $message = "Kesalahan format surel";
             }
-        }
-        else {
+        } else {
             $status  = "error";
             $message = "Form isian harap di lengkapi";
         }
-        
+
         $data = array(
             "status"  => $status,
             "message" => $message,
         );
 
-        Session::flash('alrt', $status);    
-        Session::flash('msgs', $res->message);   
+        Session::flash('alrt', $status);
+        Session::flash('msgs', $res->message);
 
-        if($module == "home") {
+        if ($module == "home") {
             return redirect()->route('home.index', ['slug' => $slug]);
-        }
-        else {
+        } else {
             return redirect()->route('contactus.index', ['slug' => $slug]);
         }
     }
@@ -112,27 +108,26 @@ class AjaxController extends Controller
         //$slug        = $request->slug;
         $value       = $request->value;
         $description = $request->description;
-        
-        if($slug != "") {
+
+        if ($slug != "") {
             $uri = Curl::endpoint();
-            $url = $uri .'/'.'v1/set-rating';
+            $url = $uri . '/' . 'v1/set-rating';
             $param = array(
                 'slug'        => $slug,
                 'ip'          => Curl::getClientIps(),
-                'value'       => (($value == "")?0:$value),
+                'value'       => (($value == "") ? 0 : $value),
                 'description' => $description,
             );
-            
+
             $res = Curl::requestPost($url, $param);
-            
+
             $status  = 'success';
             $message = $res->message;
-        }
-        else {
+        } else {
             $status  = "error";
             $message = "Form isian harap di lengkapi";
         }
-        
+
         $data = array(
             "status"  => $status,
             "message" => $message,
