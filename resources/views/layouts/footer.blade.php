@@ -173,7 +173,7 @@
 
 <div id="hello">
 <a href="https://api.whatsapp.com/send?phone=<?php echo $profile->satker_whatsapp; ?>&text=<?php echo ($profile->satker_opening == ""?"Mohon Bantuannya":$profile->satker_opening); ?>" target="_blank">
-    <img src="{{ URL::asset('assets/img/contact.png') }}" alt="Hubungi Kami" />
+    <img src="{{ URL::asset('assets/img/kontak.png') }}" alt="Hubungi Kami" />
 </a>
 </div>
 <?php } ?>

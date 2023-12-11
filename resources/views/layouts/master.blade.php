@@ -113,10 +113,12 @@
                                     <nav class="header-nav-top">
                                         <ul class="nav nav-pills">
                                             <?php $session_flag = Session::get('flag'); ?>
-                                            <li class="nav-item nav-item-left-border">
+                                            <!--
+                                                <li class="nav-item nav-item-left-border">
                                                 <a href="javascript:void(0);"
                                                     OnCLick="link_new_tab('{{ Curl::frontUrl() }}');">CMS</a>
                                             </li>
+                                            -->
                                             <?php if($session_flag != "") { ?>
                                             <li id="flag-id"
                                                 class="nav-item dropdown <?php echo $session_flag == 'id' ? ' d-block ' : ' d-none ;'; ?> nav-item-left-border nav-item-left-border-md-show">
@@ -255,6 +257,56 @@
 
             @include('layouts.footer')
     </div>
+    <div class="modal fade" id="defaultModal" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="defaultModalLabel"><?php echo Session::get('flag') == 'uk'? '<strong class="font-weight-extra-bold">Assessment</strong> Poll' : '<strong class="font-weight-extra-bold">Indeks</strong> Kepuasan'; ?></h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="alert alert-sm alert-success d-none" id="ratingSuccess" role="alert">
+                                    <span id="ratingSuccessMessage"><span>
+                                </div>
+                                <div class="alert alert-sm alert-danger d-none" id="ratingError" role="alert">
+                                    <span id="ratingErrorMessage"><span>
+                                </div>
+                                <form id="ratingForm" class="contact-form form-with-icons" action="{{ url('ajax/process-rating') }}" method="post" novalidate>
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                    <input type="hidden" name="slug" value="{{ $slug }}" />
+                                    <div class="form-group col">
+                                        <div class="d-block">
+                                            <input type="text" class="rating-invisible" value="5" title="" name="value"
+                                                data-plugin-star-rating
+                                                data-plugin-options="{'showCaption': true, 'color': 'dark', 'size':'sm'}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col">
+                                        <div class="position-relative">
+                                            <i
+                                                class="icons icon-note text-color-primary text-3 position-absolute left-15 top-15"></i>
+                                            <textarea maxlength="5000" rows="3" class="form-control text-3 h-auto py-2"
+                                            id="ratingDescription" name="description" placeholder="Pendapat (opsional)"
+                                                style="resize: none;"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col">
+                                        <button class="btn btn-default btn-modern"
+                                            type="reset"><strong>Batal!</strong></button>
+                                        <button data-loading-text="Loading..." class="btn btn-primary btn-modern"
+                                            id="ratingButton" type="submit"><strong>Kirim!</strong></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     @include('layouts.scripts')
     <script>
@@ -263,7 +315,7 @@
             element.classList.add("dark-mode");
         }
     </script>
-    <script src="https://code.responsivevoice.org/responsivevoice.js?key=1gvJbppd"></script>
+    <!--<script src="https://code.responsivevoice.org/responsivevoice.js?key=1gvJbppd"></script>-->
 </body>
 
 </html>

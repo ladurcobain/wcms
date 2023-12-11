@@ -127,6 +127,23 @@ class ConferenceAnnouncementController extends Controller
                             $headline = $res->data->list;
                         }
                     }
+
+                    $uri = Curl::endpoint();
+                    $url = $uri .'/'.'v1/get-conference-news-regional';
+                    $param = array(
+                        'ip'       => Curl::getClientIps(),
+                        'limit'    => 10,
+                        'offset'   => 0,
+                        'slug'     => $slug,
+                        'id'       => $id,
+                    );
+
+                    $res = Curl::requestPost($url, $param);
+                    
+                    $regional = array();
+                    if($res->status == true) {
+                        $regional = $res->data->list;
+                    }
                     
                     $uri = Curl::endpoint();
                     $url = $uri .'/'.'v1/get-conference-news-other';
@@ -146,6 +163,7 @@ class ConferenceAnnouncementController extends Controller
                     }
                     
                     $data['headline'] = $headline;
+                    $data['regional'] = $regional;
                     $data['other'] = $other;
 
                     return view('conference.announcement.read', $data, compact('info'));

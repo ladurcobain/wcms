@@ -12,7 +12,7 @@
     <div class="owl-stage-outer">
         <div class="owl-stage">
             <?php foreach($banner as $row) : ?>
-            <div class="owl-item position-relative overlay overlay-show overlay-op-7"
+            <div class="owl-item position-relative overlay overlay-show overlay-op-3"
                 data-dynamic-height="['700px','700px','700px','550px','500px']"
                 style="background-image: url(<?php echo $row->path; ?>); background-size: cover; background-position: center;">
                 <div class="container position-relative z-index-3 h-100">
@@ -24,7 +24,7 @@
                                     data-plugin-options="{'minWindowWidth': 0}">
                                     <?php echo Session::get('flag') == 'uk'? $row->title_en : $row->title_in; ?>
                                 </h1>
-                                <p class="text-4-5 text-color-light font-weight-light opacity-7 text-center mb-5"
+                                <p class="text-4-5 text-color-light font-weight-light opacity-2 text-center mb-5"
                                     data-plugin-animated-letters
                                     data-plugin-options="{'startDelay': 1000, 'minWindowWidth': 0, 'animationSpeed': 30}">
                                     <?php echo Session::get('flag') == 'uk'? $row->subtitle_en : $row->subtitle_in; ?>
@@ -266,7 +266,7 @@
             </div>
             <div class="col-lg-12">
                 <div class="owl-carousel owl-theme mb-0"
-                    data-plugin-options="{'responsive': {'0': {'items': 1}}, 'autoplay': true, 'autoplayTimeout': 3000, 'dots': false}">
+                    data-plugin-options="{'responsive': {'0': {'items': 1}}, 'autoplay': true, 'autoplayTimeout': 3000, 'dots': false, 'nav': true }">
                     <?php foreach($service as $row) : ?>
                     <div class="card card-body" style="margin:10px;">
                         <a target="_blank" href="<?php echo $row->link; ?>">
@@ -349,7 +349,7 @@
     <div class="row pt-5 mt-4">
         <div class="col">
             <h2 style="color: #777;" class="font-weight-normal text-center text-6 mb-8 appear-animation" data-appear-animation="fadeInUpShorter">
-                <?php echo Session::get('flag') == 'uk'? '<strong class="font-weight-extra-bold">Latest</strong> Posts' : '<strong class="font-weight-extra-bold">Berita</strong> Terkini'; ?>
+                <?php echo Session::get('flag') == 'uk'? '<strong class="font-weight-extra-bold">Important</strong> News' : '<strong class="font-weight-extra-bold">Berita</strong> Penting'; ?>
             </h2>
         </div>
     </div>
@@ -383,8 +383,8 @@
                                     <?php echo $row->titile; ?>
                                 </a>
                             </h4>
-                            <p class="line-height-5 pe-4 mb-1"><span><i class="far fa-folder"></i>
-                                    <?php echo $row->category; ?></p>
+                            <p class="line-height-5 pe-4 mb-1"><span><i class="far fa-user"></i>
+                                    <?php echo $row->satker; ?></p>
                         </div>
                     </div>
                 </article>

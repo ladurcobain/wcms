@@ -96,9 +96,9 @@ class AjaxController extends Controller
         Session::flash('msgs', $res->message);
 
         if ($module == "home") {
-            return redirect()->route('home.index', ['slug' => $slug]);
+            return redirect()->route('home.index');
         } else {
-            return redirect()->route('contactus.index', ['slug' => $slug]);
+            return redirect()->route('contactus.index');
         }
     }
 
@@ -134,5 +134,42 @@ class AjaxController extends Controller
         );
 
         return $data;
+    }
+
+    public function process_rating(Request $request)
+    {
+        $slug = config('app.slug');
+        //$slug        = $request->slug;
+        $value       = $request->value;
+        $description = $request->description;
+
+        if ($slug != "") {
+            $uri = Curl::endpoint();
+            $url = $uri . '/' . 'v1/set-rating';
+            $param = array(
+                'slug'        => $slug,
+                'ip'          => Curl::getClientIps(),
+                'value'       => (($value == "") ? 0 : $value),
+                'description' => $description,
+            );
+
+            $res = Curl::requestPost($url, $param);
+
+            $status  = 'success';
+            $message = $res->message;
+        } else {
+            $status  = "error";
+            $message = "Form isian harap di lengkapi";
+        }
+
+        $data = array(
+            "status"  => $status,
+            "message" => $message,
+        );
+
+        Session::flash('alrt', $status);
+        Session::flash('msgs', $res->message);
+
+        return redirect()->route('home.index');
     }
 }

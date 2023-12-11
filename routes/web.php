@@ -60,6 +60,7 @@ Route::get('ajax/set-flag/{id}', [AjaxController::class, 'set_flag']);
 Route::post('ajax/set-newsletter', [AjaxController::class, 'set_newsletter']);
 Route::post('ajax/set-contactus', [AjaxController::class, 'set_contactus']);
 Route::post('ajax/set-rating', [AjaxController::class, 'set_rating']);
+Route::post('ajax/process-rating', [AjaxController::class, 'process_rating']);
 
 
 Route::get('home', [HomeController::class, 'index'])->name('home.index');

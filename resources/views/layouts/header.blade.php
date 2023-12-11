@@ -24,6 +24,15 @@
     <script>var base_url = "{{ URL::to('/') }}/"</script> 
     <script>
         window.speechSynthesis.cancel();
+
+        const myTimeout = setTimeout(myGreeting, 60000);
+        function myGreeting() {
+            modal_default();
+        }
+
+        function modal_default() {
+            $('#defaultModal').modal('show');
+        }
     </script>
     @include('layouts.styles')
 

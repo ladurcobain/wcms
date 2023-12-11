@@ -129,6 +129,23 @@ class ConferenceEventController extends Controller
                     }
 
                     $uri = Curl::endpoint();
+                    $url = $uri .'/'.'v1/get-conference-news-regional';
+                    $param = array(
+                        'ip'       => Curl::getClientIps(),
+                        'limit'    => 10,
+                        'offset'   => 0,
+                        'slug'     => $slug,
+                        'id'       => $id,
+                    );
+
+                    $res = Curl::requestPost($url, $param);
+                    
+                    $regional = array();
+                    if($res->status == true) {
+                        $regional = $res->data->list;
+                    }
+                    
+                    $uri = Curl::endpoint();
                     $url = $uri .'/'.'v1/get-conference-news-other';
                     $param = array(
                         'ip'       => Curl::getClientIps(),
@@ -146,6 +163,7 @@ class ConferenceEventController extends Controller
                     }
                     
                     $data['headline'] = $headline;
+                    $data['regional'] = $regional;
                     $data['other'] = $other;
 
                     return view('conference.event.read', $data, compact('info'));

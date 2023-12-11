@@ -91,7 +91,7 @@
                 </div>
                 <div class="col-lg-4">
                     <?php if(!empty($headline)) {?>
-                    <h3 class="font-weight-bold text-3 mb-0 pb-2"><?php echo Session::get('flag') == 'uk' ? 'Headlines' : 'Berita Utama'; ?></h3>
+                    <h3 class="font-weight-bold text-3 mb-0 pb-2"><?php echo Session::get('flag') == 'uk' ? 'National News' : 'Berita Nasional'; ?></h3>
                     <div class="pb-1 card card-body">
                         <div class="mb-2 pb-1">
                             <?php foreach ($headline as $rHeadline) { ?>
@@ -116,6 +116,42 @@
                                             </h4>
                                             <div class="post-meta">
                                                 <?php echo $rHeadline->date; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <?php } ?>
+                        </div>
+                    </div>
+                    <br />
+                    <?php } ?>
+                    <?php if(!empty($regional)) {?>
+                    <h3 class="font-weight-bold text-3 mb-0 pb-2"><?php echo Session::get('flag') == 'uk' ? 'Regional News' : 'Berita Daerah'; ?></h3>
+                    <div class="pb-1 card card-body">
+                        <div class="mb-2 pb-1">
+                            <?php foreach ($regional as $rRegional) { ?>
+                            <article class="thumb-info thumb-info-no-zoom bg-transparent border-radius-0 pb-2 mb-2">
+                                <div class="row align-items-center pb-1">
+                                    <div class="col-sm-4">
+                                        <div class="post-image mb-2">
+                                            <div class="img-thumbnail img-thumbnail-no-borders d-block">
+                                                <a href="<?php echo url('conference/news/' . $rRegional->id . '/read'); ?>">
+                                                    <img src="<?php echo $rRegional->path; ?>" class="img-fluid border-radius-0"
+                                                        alt="<?php echo $rRegional->title; ?>" width="50" height="50" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <div class="post-info">
+                                            <h4
+                                                class="d-block pb-1 line-height-2 text-3 text-dark font-weight-semibold mb-0">
+                                                <a href="<?php echo url('conference/news/' . $rRegional->id . '/read'); ?>"
+                                                    class="text-decoration-none text-color-dark text-color-hover-primary"><?php echo Status::str_ellipsis($rRegional->title, 100); ?></a>
+                                            </h4>
+                                            <div class="post-meta">
+                                                <?php echo $rRegional->date; ?>
                                             </div>
                                         </div>
                                     </div>
