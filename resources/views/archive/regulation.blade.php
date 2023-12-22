@@ -30,7 +30,7 @@
                         </tr>
                         <?php } ?>
                         <?php } else { ?>
-                            <tr><td class="center" colspan="3">Data tidak ditemukan</td></tr>
+                            <tr><td align="center" colspan="3">Data tidak ditemukan</td></tr>
                         <?php } ?>
                     </tbody>
                     <?php if($results->total() > 0) { ?>
