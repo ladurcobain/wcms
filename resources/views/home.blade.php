@@ -349,14 +349,14 @@
     <div class="row pt-5 mt-4">
         <div class="col">
             <h2 style="color: #777;" class="font-weight-normal text-center text-6 mb-8 appear-animation" data-appear-animation="fadeInUpShorter">
-                <?php echo Session::get('flag') == 'uk'? '<strong class="font-weight-extra-bold">Important</strong> News' : '<strong class="font-weight-extra-bold">Berita</strong> Penting'; ?>
+                <?php echo Session::get('flag') == 'uk'? '<strong class="font-weight-extra-bold">Important</strong> News' : '<strong class="font-weight-extra-bold">Berita</strong> Utama'; ?>
             </h2>
         </div>
     </div>
-    <div class="row recent-posts pb-5 mb-4 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
+    <div class="row recent-posts pb-5 mb-2 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
         <?php foreach($news as $row) : ?>
-        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-            <div class="card card-body">
+        <div class="col-md-4 col-lg-4 mb-2 mb-lg-0">
+            <div class="card border-width-3 border-radius-0 border-color-hover-dark" style="margin: 5px;padding: 5px;">
                 <article>
                     <div class="row">
                         <div class="col">
@@ -383,8 +383,10 @@
                                     <?php echo $row->titile; ?>
                                 </a>
                             </h4>
-                            <p class="line-height-5 pe-4 mb-1"><span><i class="far fa-user"></i>
+                            <p style="font-size:12px;" class="line-height-3 pe-4 mb-1"><span><i class="far fa-user"></i>
                                     <?php echo $row->satker; ?></p>
+                            <p style="font-size:12px;" class="line-height-3 pe-4 mb-1"><span><i class="far fa-eye"></i>
+                                    <?php echo $row->view; ?> Dilihat</p>
                         </div>
                     </div>
                 </article>
