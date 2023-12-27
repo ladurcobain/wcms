@@ -33,15 +33,21 @@
                                         <h2 class="font-weight-bold text-4 line-height-3 mt-0 mb-2">
                                             <a href="<?php echo url('conference/event/' . $row->id . '/read'); ?>"><?php echo $row->title; ?></a>
                                         </h2>
-                                        <div class="post-meta m-0 p-0">
-                                            <span><i class="far fa-calendar-alt text-primary"></i><span
-                                                    style="color: #05ac69"> <?php echo $row->date; ?></span> </span>
-                                            <span><i class="far fa-folder text-primary"></i> <a
-                                                    style="color: #05ac69"><?php echo $row->category; ?></a>
+                                        <div class="post-meta">
+                                            <span>
+                                                <i class="far fa-calendar-alt text-primary"></i>
+                                                <span style="color: #05ac69"> <?php echo $row->date; ?></span>
                                             </span>
-                                            <span><i class="far fa-eye text-primary"></i> <a
-                                                    style="color: #05ac69"><?php echo number_format($row->view); ?></a>
-                                                <?php echo Session::get('flag') == 'uk' ? 'views' : 'dilihat'; ?></span>
+                                            &nbsp;&nbsp;
+                                            <span>
+                                                <i class="far fa-folder text-primary"></i> 
+                                                <span style="color: #05ac69"><?php echo $row->category; ?></span>
+                                            </span>
+                                            &nbsp;&nbsp;
+                                            <span>
+                                                <i class="far fa-eye text-primary"></i> 
+                                                <span style="color: #05ac69"><?php echo number_format($row->view); ?> <?php echo Session::get('flag') == 'uk' ? 'views' : 'dilihat'; ?></span>
+                                            </span>
                                         </div>
                                         <p class="mb-0">
                                             <?php echo Status::str_ellipsis(Session::get('flag') == 'uk' ? $row->text_en : $row->text_in, 460); ?>

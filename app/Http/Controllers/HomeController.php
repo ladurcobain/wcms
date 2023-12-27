@@ -36,7 +36,6 @@ class HomeController extends Controller
                 $data['infografis'] = $res->data->infografis; 
                 $data['service']    = $res->data->service;
                 $data['news']       = $res->data->news; 
-                
                 $data['slug']       = $slug;
                 $data['title']      = $this->title;
                 $data['subtitle']   = $this->subtitle;
@@ -44,6 +43,26 @@ class HomeController extends Controller
                 $data['is_cover']   = $info->profile->is_cover;
                 $data['background'] = $info->profile->satker_background;
                 $data['overlay']    = $info->profile->satker_overlay;
+
+                $berita = array();
+                foreach($res->data->news as $r) {
+                    $berita[] = array(
+                        "id"        => $r->id,
+                        "title"     => $r->title,
+                        "date"      => $r->date,
+                        "category"  => $r->category,
+                        "titile"    => $r->titile,
+                        "text_in"   => $r->text_in,
+                        "text_en"   => $r->text_en,
+                        "size"      => $r->size,
+                        "image"     => $r->image,
+                        "path"      => $r->path,
+                        "view"      => $r->view,
+                        "satker"    => $r->satker
+                    );
+                }
+
+                $data['berita'] = $berita;
 
                 Session::put('meta_url', url()->full());
                 Session::put('meta_title', config('app.name') .' | '. (($this->subtitle != "")? $this->subtitle : $this->title));

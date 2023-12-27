@@ -75,6 +75,122 @@
 </div>
 <?php } ?>
 
+<?php if(count($berita) > 0) { ?>
+<section class="section section-height-3 bg-color-grey-scale-1 m-0 border-0">
+    <div class="row pt-5 mt-4">
+        <div class="col">
+            <h2 style="color: #777;" class="font-weight-normal text-center text-6 mb-8 appear-animation" data-appear-animation="fadeInUpShorter">
+                <?php echo Session::get('flag') == 'uk'? '<strong class="font-weight-extra-bold">Important</strong> News' : '<strong class="font-weight-extra-bold">Berita</strong> Utama'; ?>
+            </h2>
+        </div>
+    </div>    
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-sm-8 col-md-6 col-lg-8">
+                <p style="font-weight: bold;color: #05ac69;" class="lead pe-lg-5 me-lg-5"><?php echo $berita[0]['title']; ?></p>
+                <div class="post-meta">
+                    <span>
+                        <i class="far fa-calendar-alt text-primary"></i>
+                        <span style="color: #05ac69"> <?php echo Carbon\Carbon::createFromFormat('Y-m-d', $berita[0]['date'])->format('d-m-Y'); ?></span>
+                    </span>
+                    &nbsp;&nbsp;
+                    <span>
+                        <i class="far fa-folder text-primary"></i> 
+                        <span style="color: #05ac69"><?php echo $berita[0]['category']; ?></span>
+                    </span>
+                    &nbsp;&nbsp;
+                    <span>
+                        <i class="far fa-eye text-primary"></i> 
+                        <span style="color: #05ac69"><?php echo number_format($berita[0]['view']); ?> <?php echo Session::get('flag') == 'uk' ? 'views' : 'dilihat'; ?></span>
+                    </span>
+                </div>
+                <p><?php echo Session::get('flag') == 'uk' ? Status::str_ellipsis($berita[0]['text_en'], 350) : Status::str_ellipsis($berita[0]['text_in'], 350); ?></p>
+                <a style="background-color: #05ac69;" href="<?php echo url('conference/news/'. $berita[0]['id'].'/read'); ?>" class="btn btn-dark font-weight-semibold btn-px-4 btn-py-2 text-2"><?php echo Session::get('flag') == 'uk'? 'More' : 'Selengkapnya'; ?></a>
+            </div>
+            <div class="col-sm-4 col-md-6 col-lg-4 mt-sm-3" style="top: 1.7rem;">
+                <div class="card border-width-3 border-radius-0" style="margin: 5px;padding: 10px;">    
+                    <img src="<?php echo $berita[0]['path']; ?>" class="img-fluid position-relative appear-animation mb-2" data-appear-animation="expandIn" data-appear-animation-delay="600" alt="<?php echo $berita[0]['title']; ?>" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-sm-8 col-md-6 col-lg-8">
+                <p style="font-weight: bold;color: #05ac69;" class="lead pe-lg-5 me-lg-5"><?php echo $berita[1]['title']; ?></p>
+                <div class="post-meta">
+                    <span>
+                        <i class="far fa-calendar-alt text-primary"></i>
+                        <span style="color: #05ac69"> <?php echo Carbon\Carbon::createFromFormat('Y-m-d', $berita[1]['date'])->format('d-m-Y'); ?></span>
+                    </span>
+                    &nbsp;&nbsp;
+                    <span>
+                        <i class="far fa-folder text-primary"></i> 
+                        <span style="color: #05ac69"><?php echo $berita[1]['category']; ?></span>
+                    </span>
+                    &nbsp;&nbsp;
+                    <span>
+                        <i class="far fa-eye text-primary"></i> 
+                        <span style="color: #05ac69"><?php echo number_format($berita[1]['view']); ?> <?php echo Session::get('flag') == 'uk' ? 'views' : 'dilihat'; ?></span>
+                    </span>
+                </div>
+                <p><?php echo Session::get('flag') == 'uk' ? Status::str_ellipsis($berita[1]['text_en'], 350) : Status::str_ellipsis($berita[1]['text_in'], 350); ?></p>
+                <a style="background-color: #05ac69;" href="<?php echo url('conference/news/'. $berita[1]['id'].'/read'); ?>" class="btn btn-dark font-weight-semibold btn-px-4 btn-py-2 text-2"><?php echo Session::get('flag') == 'uk'? 'More' : 'Selengkapnya'; ?></a>
+            </div>
+            <div class="col-sm-4 col-md-6 col-lg-4 mt-sm-3" style="top: 1.7rem;">
+                <div class="card border-width-3 border-radius-0" style="margin: 5px;padding: 10px;">    
+                    <img src="<?php echo $berita[1]['path']; ?>" class="img-fluid position-relative appear-animation mb-2" data-appear-animation="expandIn" data-appear-animation-delay="600" alt="<?php echo $berita[1]['title']; ?>" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row recent-posts pt-3 mt-4 pb-5 mb-2 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
+            <?php for($i=2; $i<count($berita); $i++) { ?>
+            <div class="col-md-6 col-lg-3 mb-2 mb-lg-0">
+                <div class="card border-width-3 border-radius-0 border-color-hover-dark" style="margin: 5px;padding: 5px;">
+                    <article>
+                        <div class="row">
+                            <div class="col">
+                                <a href="<?php echo url('conference/news/'. $berita[$i]['id'].'/read'); ?>"
+                                    class="text-decoration-none">
+                                    <img src="<?php echo $berita[$i]['path']; ?>" class="img-fluid hover-effect-2 mb-3"
+                                        alt="<?php echo $berita[$i]['titile']; ?>" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-auto pe-0">
+                                <div class="date">
+                                    <span
+                                        class="day text-color-dark font-weight-extra-bold"><?php echo Carbon\Carbon::createFromFormat('Y-m-d', $berita[$i]['date'])->format('d'); ?></span>
+                                    <span
+                                        class="month text-1"><?php echo Carbon\Carbon::createFromFormat('Y-m-d', $berita[$i]['date'])->format('M'); ?></span>
+                                </div>
+                            </div>
+                            <div class="col ps-1">
+                                <h4 class="line-height-3 text-3">
+                                    <a href="<?php echo url('conference/news/'. $berita[$i]['id'].'/read'); ?>"
+                                        class="text-dark">
+                                        <?php echo $berita[$i]['titile']; ?>
+                                    </a>
+                                </h4>
+                                <p style="font-size:12px;" class="line-height-3 pe-4 mb-1"><span><i class="far fa-user"></i>
+                                        <?php echo $berita[$i]['satker']; ?></p>
+                                <p style="font-size:12px;" class="line-height-3 pe-4 mb-1"><span><i class="far fa-eye"></i>
+                                        <?php echo $berita[$i]['view']; ?> Dilihat</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+    </div>
+</section>
+<?php } ?>
+
 <div class="container">
     <div class="row py-5 my-5">
         <div class="col-lg-8 mt-5 mt-lg-0">

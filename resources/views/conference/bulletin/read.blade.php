@@ -23,9 +23,20 @@
                             <div class="post-content ms-0">
                                 <h3 style="color: #05ac69;" class="font-weight-semi-bold text-5"><?php echo $read->title; ?></h3>
                                 <div class="post-meta mb-2 p-0">
-                                    <span><i class="far fa-calendar-alt"></i> <?php echo $read->date; ?> </span>
-                                    <span><i class="far fa-folder"></i> <a><?php echo $read->category; ?></a> </span>
-                                    <span><i class="far fa-eye"></i> <a><?php echo number_format($read->view); ?></a> </span>
+                                    <span>
+                                        <i class="far fa-calendar-alt text-primary"></i>
+                                        <span style="color: #05ac69"> <?php echo $read->date; ?></span>
+                                    </span>
+                                    &nbsp;&nbsp;
+                                    <span>
+                                        <i class="far fa-folder text-primary"></i> 
+                                        <span style="color: #05ac69"><?php echo $read->category; ?></span>
+                                    </span>
+                                    &nbsp;&nbsp;
+                                    <span>
+                                        <i class="far fa-eye text-primary"></i> 
+                                        <span style="color: #05ac69"><?php echo number_format($read->view); ?> <?php echo Session::get('flag') == 'uk' ? 'views' : 'dilihat'; ?></span>
+                                    </span>
                                 </div>
                                 <p class="lead mb-0"><?php echo Session::get('flag') == 'uk' ? $read->text_en : $read->text_in; ?></p>
                                 <div class="post-block mt-5 post-share">
@@ -182,14 +193,19 @@
                             <div class="post-content ms-0">
                                 <h3 style="color: #05ac69;" class="font-weight-semi-bold text-5"><?php echo $read->title; ?></h3>
                                 <div class="post-meta mb-2 p-0">
-                                    <span><i class="far fa-calendar-alt" style="color: #05ac69;"></i> <span
-                                            style="color: #05ac69;">
-                                            <?php echo $read->date; ?> </span></span>
-                                    <span><i class="far fa-folder" style="color: #05ac69;"></i> <a
-                                            style="color: #05ac69;"><?php echo $read->category; ?></a>
+                                    <span>
+                                        <i class="far fa-calendar-alt text-primary"></i>
+                                        <span style="color: #05ac69"> <?php echo $read->date; ?></span>
                                     </span>
-                                    <span><i class="far fa-eye" style="color: #05ac69;"></i> <a
-                                            style="color: #05ac69;"><?php echo number_format($read->view); ?></a>
+                                    &nbsp;&nbsp;
+                                    <span>
+                                        <i class="far fa-folder text-primary"></i> 
+                                        <span style="color: #05ac69"><?php echo $read->category; ?></span>
+                                    </span>
+                                    &nbsp;&nbsp;
+                                    <span>
+                                        <i class="far fa-eye text-primary"></i> 
+                                        <span style="color: #05ac69"><?php echo number_format($read->view); ?> <?php echo Session::get('flag') == 'uk' ? 'views' : 'dilihat'; ?></span>
                                     </span>
                                 </div>
                                 <p class="lead mb-0"><?php echo Session::get('flag') == 'uk' ? $read->text_en : $read->text_in; ?></p>
