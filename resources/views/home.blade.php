@@ -76,8 +76,8 @@
 <?php } ?>
 
 <?php if(count($berita) > 0) { ?>
-<section class="section section-height-3 bg-color-grey-scale-1 m-0 border-0">
-    <div class="row pt-5 mt-4">
+<section class="section section-height-1 bg-color-grey-scale-1 m-0 border-0">
+    <div class="row pt-4 mt-3">
         <div class="col">
             <h2 style="color: #777;" class="font-weight-normal text-center text-6 mb-8 appear-animation" data-appear-animation="fadeInUpShorter">
                 <?php echo Session::get('flag') == 'uk'? '<strong class="font-weight-extra-bold">Important</strong> News' : '<strong class="font-weight-extra-bold">Berita</strong> Utama'; ?>
