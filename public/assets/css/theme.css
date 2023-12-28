@@ -1302,7 +1302,7 @@ html:not(.boxed) #header.header-floating-bar .header-nav-main nav > ul > li.drop
 
 @media (min-width: 1200px) {
 	html:not(.sticky-header-active) #header.header-floating-bar .header-body {
-		max-width: 1140px;
+		max-width: 1280px;
 		right: 15px;
 	}
 
@@ -8293,7 +8293,7 @@ a.text-light:focus, a.text-light:hover {
 /* Container */
 @media (min-width: 1200px) {
 	.container:not(.container-bs):not(.container-xl-custom):not(.container-xxl-custom) {
-		max-width: 1140px;
+		max-width: 1280;
 	}
 }
 
