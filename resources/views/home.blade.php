@@ -103,6 +103,11 @@
                         <i class="far fa-eye text-primary"></i> 
                         <span style="color: #05ac69"><?php echo number_format($berita[0]['view']); ?> <?php echo Session::get('flag') == 'uk' ? 'views' : 'dilihat'; ?></span>
                     </span>
+                    &nbsp;&nbsp;
+                    <span>
+                        <i class="far fa-user text-primary"></i> 
+                        <span style="color: #05ac69"><?php echo $berita[0]['satker']; ?></span>
+                    </span>
                 </div>
                 <p><?php echo Session::get('flag') == 'uk' ? Status::str_ellipsis($berita[0]['text_en'], 350) : Status::str_ellipsis($berita[0]['text_in'], 350); ?></p>
                 <a style="background-color: #05ac69;" href="<?php echo url('conference/news/'. $berita[0]['id'].'/read'); ?>" class="btn btn-dark font-weight-semibold btn-px-4 btn-py-2 text-2"><?php echo Session::get('flag') == 'uk'? 'More' : 'Selengkapnya'; ?></a>
@@ -133,6 +138,11 @@
                     <span>
                         <i class="far fa-eye text-primary"></i> 
                         <span style="color: #05ac69"><?php echo number_format($berita[1]['view']); ?> <?php echo Session::get('flag') == 'uk' ? 'views' : 'dilihat'; ?></span>
+                    </span>
+                    &nbsp;&nbsp;
+                    <span>
+                        <i class="far fa-user text-primary"></i> 
+                        <span style="color: #05ac69"><?php echo $berita[1]['satker']; ?></span>
                     </span>
                 </div>
                 <p><?php echo Session::get('flag') == 'uk' ? Status::str_ellipsis($berita[1]['text_en'], 350) : Status::str_ellipsis($berita[1]['text_in'], 350); ?></p>

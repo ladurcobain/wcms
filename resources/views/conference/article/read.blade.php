@@ -112,7 +112,7 @@
                                                 <a href="<?php echo url('conference/news/' . $rHeadline->id . '/read'); ?>"
                                                     class="text-decoration-none text-color-dark text-color-hover-primary"><?php echo Status::str_ellipsis($rHeadline->title, 100); ?></a>
                                             </h4>
-                                            <div class="post-meta">
+                                            <div class="post-meta" style="color: grey;">
                                                 <?php echo $rHeadline->date; ?>
                                             </div>
                                         </div>
@@ -148,7 +148,7 @@
                                                 <a href="<?php echo url('conference/news/' . $rRegional->id . '/read'); ?>"
                                                     class="text-decoration-none text-color-dark text-color-hover-primary"><?php echo Status::str_ellipsis($rRegional->title, 100); ?></a>
                                             </h4>
-                                            <div class="post-meta">
+                                            <div class="post-meta" style="color: grey;">
                                                 <?php echo $rRegional->date; ?>
                                             </div>
                                         </div>
@@ -173,7 +173,7 @@
                                                 <a href="<?php echo url('conference/article/' . $rOther->id . '/read'); ?>"
                                                     class="text-decoration-none text-color-dark text-color-hover-primary"><?php echo Status::str_ellipsis($rOther->title, 100); ?></a>
                                             </h4>
-                                            <div class="post-meta">
+                                            <div class="post-meta" style="color: grey;">
                                                 <?php echo $rOther->date; ?>
                                             </div>
                                         </div>
