@@ -13,8 +13,8 @@
             <div class="card card-body">
                 <h2 class="text-color-dark font-weight-normal text-5 mb-2"><?php echo $read->name; ?></h2>
                 <ul class="list list-icons list-primary list-borders text-2">
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">NIP : </strong> <?php echo $read->nip; ?></li>
-                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">Jabatan : </strong> <?php echo $read->title; ?></li>
+                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">NIP : </strong> <span class="text-color-dark"><?php echo $read->nip; ?></span></li>
+                    <li><i class="fas fa-caret-right left-10"></i> <strong class="text-color-primary">Jabatan : </strong> <span class="text-color-dark"><?php echo $read->title; ?></span</li>
                 </ul>
                 <p class="lead appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700"><?php echo $read->information; ?></p>
             </div>
