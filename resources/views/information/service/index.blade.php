@@ -17,7 +17,7 @@
                             <article class="post post-medium border-0 pb-0 mb-5 card card-body">
                                 <div class="post-image">
                                     <a href="<?php echo url('information/service/'. $row->id.'/read'); ?>">
-                                        <img src="<?php echo $row->path; ?>" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="<?php echo $row->title; ?>" />
+                                        <img loading="lazy" src="<?php echo $row->path; ?>" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="<?php echo $row->title; ?>" />
                                     </a>
                                 </div>
                                 <div class="post-content">

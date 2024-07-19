@@ -22,7 +22,7 @@
                         <article class="post post-large blog-single-post border-0 m-0 p-0">
                             <div class="post-image ms-0">
                                 <center>
-                                    <img src="<?php echo $read->path; ?>"
+                                    <img loading="lazy" src="<?php echo $read->path; ?>"
                                         class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0"
                                         alt="<?php echo $read->title; ?>" />
                                 </center>
@@ -106,7 +106,7 @@
                                         <div class="post-image mb-2">
                                             <div class="img-thumbnail img-thumbnail-no-borders d-block">
                                                 <a href="<?php echo url('conference/news/' . $rHeadline->id . '/read'); ?>">
-                                                    <img src="<?php echo $rHeadline->path; ?>" class="img-fluid border-radius-0"
+                                                    <img loading="lazy" src="<?php echo $rHeadline->path; ?>" class="img-fluid border-radius-0"
                                                         alt="<?php echo $rHeadline->title; ?>" width="50" height="50" />
                                                 </a>
                                             </div>
@@ -142,7 +142,7 @@
                                         <div class="post-image mb-2">
                                             <div class="img-thumbnail img-thumbnail-no-borders d-block">
                                                 <a href="<?php echo url('conference/news/' . $rRegional->id . '/read'); ?>">
-                                                    <img src="<?php echo $rRegional->path; ?>" class="img-fluid border-radius-0"
+                                                    <img loading="lazy" src="<?php echo $rRegional->path; ?>" class="img-fluid border-radius-0"
                                                         alt="<?php echo $rRegional->title; ?>" width="50" height="50" />
                                                 </a>
                                             </div>
@@ -177,7 +177,7 @@
                                         <div class="post-image mb-2">
                                             <div class="img-thumbnail img-thumbnail-no-borders d-block">
                                                 <a href="<?php echo url('conference/event/' . $rOther->id . '/read'); ?>">
-                                                    <img src="<?php echo $rOther->path; ?>" class="img-fluid border-radius-0"
+                                                    <img loading="lazy" src="<?php echo $rOther->path; ?>" class="img-fluid border-radius-0"
                                                         alt="<?php echo $rOther->title; ?>" width="50" height="50" />
                                                 </a>
                                             </div>
@@ -209,7 +209,7 @@
                         <article class="post post-large blog-single-post border-0 m-0 p-0">
                             <div class="post-image ms-0">
                                 <center>
-                                    <img src="<?php echo $read->path; ?>"
+                                    <img loading="lazy" src="<?php echo $read->path; ?>"
                                         class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0"
                                         alt="<?php echo $read->title; ?>" />
                                 </center>

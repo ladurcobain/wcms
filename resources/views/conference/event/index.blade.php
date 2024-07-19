@@ -22,7 +22,7 @@
                                 <div class="col-lg-4">
                                     <div class="post-image mb-3 card card-body">
                                         <a href="<?php echo url('conference/event/' . $row->id . '/read'); ?>">
-                                            <img src="<?php echo $row->path; ?>"
+                                            <img loading="lazy" src="<?php echo $row->path; ?>"
                                                 class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0 w-100"
                                                 alt="<?php echo $row->title; ?>" />
                                         </a>

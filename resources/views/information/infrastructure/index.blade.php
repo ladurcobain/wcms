@@ -17,7 +17,7 @@
                         <div class="portfolio-item card card-body">
                             <span class="thumb-info thumb-info-lighten thumb-info-centered-icons thumb-info-bottom-info border-radius-0">
                                 <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="<?php echo $row->path; ?>" class="img-fluid border-radius-0" alt="<?php echo $row->name; ?>" />
+                                    <img loading="lazy" src="<?php echo $row->path; ?>" class="img-fluid border-radius-0" alt="<?php echo $row->name; ?>" />
                                     <span class="thumb-info-title font-weight-bold text-dark" style="opacity: 0.5;">
                                         <span class="thumb-info-inner line-height-1 font-weight-bold text-dark position-relative top-3"></span>
                                         <span class="thumb-info-type"><?php echo $row->name; ?></span>

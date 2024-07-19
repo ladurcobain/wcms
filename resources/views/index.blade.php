@@ -13,7 +13,7 @@
                     <div class="col text-center">
                         <div class="logo">
                             <a>
-                                <img height="150" src="{{ URL::asset('assets/img/kejaksaan-logo.jpg') }}" alt="Kejaksaan Agung RI" />
+                                <img loading="lazy" height="150" src="{{ URL::asset('assets/img/kejaksaan-logo.jpg') }}" alt="Kejaksaan Agung RI" />
                             </a>
                         </div>
                     </div>

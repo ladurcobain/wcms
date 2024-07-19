@@ -76,8 +76,12 @@
     }
 </script>
 
-<body style="background-color: black;color: white;" class="loading-overlay-showing" data-plugin-page-transition
+<body data-plugin-page-transition style="background-color: black;color: white;" data-plugin-page-transition>
+
+<!--    
+<body data-plugin-page-transition style="background-color: black;color: white;" class="loading-overlay-showing" data-plugin-page-transition
     data-loading-overlay data-plugin-options="{'hideDelay': 0, 'effect': 'percentageProgress1'}">
+-->
     <?php echo Status::loadingContent($overlay); ?>
     <div class="body">
         <?php if ($pattern) {

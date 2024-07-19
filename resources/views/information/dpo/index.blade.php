@@ -19,7 +19,7 @@
 								<a href="<?php echo url('information/dpo/'. $row->id.'/read'); ?>">
 									<span class="thumb-info thumb-info-no-borders thumb-info-lighten thumb-info-bottom-info thumb-info-bottom-info-dark thumb-info-bottom-info-show-more thumb-info-no-zoom border-radius-0">
 										<span class="thumb-info-wrapper">
-											<img src="<?php echo $row->path; ?>" class="img-fluid" alt="<?php echo $row->name; ?>" />
+											<img loading="lazy" src="<?php echo $row->path; ?>" class="img-fluid" alt="<?php echo $row->name; ?>" />
 											<span class="thumb-info-title bg-transparent p-4">
 												<span class="thumb-info-inner line-height-1 text-3 font-weight-bold"><?php echo substr($row->name, 0, 15); ?></span>
 											</span>

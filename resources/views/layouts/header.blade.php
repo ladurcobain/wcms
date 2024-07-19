@@ -25,7 +25,7 @@
     <script>
         window.speechSynthesis.cancel();
 
-        const myTimeout = setTimeout(myGreeting, 60000);
+        const myTimeout = setTimeout(myGreeting, 300000);
         function myGreeting() {
             modal_default();
         }

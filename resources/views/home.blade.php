@@ -114,7 +114,7 @@
             </div>
             <div class="col-sm-4 col-md-6 col-lg-4 mt-sm-3" style="top: 1.7rem;">
                 <div class="card border-width-3 border-radius-0" style="margin: 5px;padding: 10px;">    
-                    <img src="<?php echo $berita[0]['path']; ?>" class="img-fluid position-relative appear-animation mb-2" data-appear-animation="expandIn" data-appear-animation-delay="600" alt="<?php echo $berita[0]['title']; ?>" />
+                    <img loading="lazy" src="<?php echo $berita[0]['path']; ?>" class="img-fluid position-relative appear-animation mb-2" data-appear-animation="expandIn" data-appear-animation-delay="600" alt="<?php echo $berita[0]['title']; ?>" />
                 </div>
             </div>
         </div>
@@ -150,7 +150,7 @@
             </div>
             <div class="col-sm-4 col-md-6 col-lg-4 mt-sm-3" style="top: 1.7rem;">
                 <div class="card border-width-3 border-radius-0" style="margin: 5px;padding: 10px;">    
-                    <img src="<?php echo $berita[1]['path']; ?>" class="img-fluid position-relative appear-animation mb-2" data-appear-animation="expandIn" data-appear-animation-delay="600" alt="<?php echo $berita[1]['title']; ?>" />
+                    <img loading="lazy" src="<?php echo $berita[1]['path']; ?>" class="img-fluid position-relative appear-animation mb-2" data-appear-animation="expandIn" data-appear-animation-delay="600" alt="<?php echo $berita[1]['title']; ?>" />
                 </div>
             </div>
         </div>
@@ -165,7 +165,7 @@
                             <div class="col">
                                 <a href="<?php echo url('conference/news/'. $berita[$i]['id'].'/read'); ?>"
                                     class="text-decoration-none">
-                                    <img src="<?php echo $berita[$i]['path']; ?>" class="img-fluid hover-effect-2 mb-3"
+                                    <img loading="lazy" src="<?php echo $berita[$i]['path']; ?>" class="img-fluid hover-effect-2 mb-3"
                                         alt="<?php echo $berita[$i]['titile']; ?>" />
                                 </a>
                             </div>
@@ -297,7 +297,7 @@
                         <?php foreach($infografis as $row) : ?>
                         <div class="card card-body">
                             <a target="_blank" href="<?php echo $row->link; ?>">
-                                <img class="img-fluid rounded" src="<?php echo $row->path; ?>"
+                                <img loading="lazy" class="img-fluid rounded" src="<?php echo $row->path; ?>"
                                     alt="<?php echo $row->name; ?>" />
                             </a>
                         </div>
@@ -396,7 +396,7 @@
                     <?php foreach($service as $row) : ?>
                     <div class="card card-body" style="margin:10px;">
                         <a target="_blank" href="<?php echo $row->link; ?>">
-                            <img class="img-fluid opacity-6" src="<?php echo $row->path; ?>"
+                            <img loading="lazy" class="img-fluid opacity-6" src="<?php echo $row->path; ?>"
                                 alt="<?php echo $row->title; ?>" />
                         </a>
                     </div>

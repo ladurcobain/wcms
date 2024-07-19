@@ -387,6 +387,7 @@ class Status
             ';
         }
 
+        $str = "";
         return $str;
     }
 }

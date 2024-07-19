@@ -82,7 +82,7 @@
                                 <a href="<?php echo url('information/structural/'. $row->id.'/read'); ?>">
                                     <span class="thumb-info thumb-info-lighten thumb-info-no-borders border-radius-0">
                                         <span class="thumb-info-wrapper border-radius-0">
-                                            <img src="<?php echo $row->path; ?>" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="<?php echo $row->name; ?>" class="img-fluid border-radius-0" />
+                                            <img loading="lazy" src="<?php echo $row->path; ?>" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="<?php echo $row->name; ?>" class="img-fluid border-radius-0" />
                                             <span class="thumb-info-title">
                                                 <span class="thumb-info-inner"><?php echo substr($row->name, 0, 15); ?></span>
                                             </span>
