@@ -17,7 +17,7 @@
                         <div class="portfolio-item card card-body">
                             <span class="thumb-info thumb-info-lighten thumb-info-no-borders thumb-info-bottom-info border-radius-0">
                                 <span class="thumb-info-wrapper border-radius-0">
-                                    <img src="{{ $row->path }}" class="img-fluid border-radius-0" alt="{{ $row->title }}" />
+                                    <img loading="lazy" src="{{ $row->path }}" class="img-fluid border-radius-0" alt="{{ $row->title }}" />
                                     <span class="thumb-info-title" style="opacity:0.5">
                                         <span class="thumb-info-type">{{ $row->title }}</span>
                                     </span>
