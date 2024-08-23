@@ -6,6 +6,12 @@
 
     class Curl {
 
+        public static function statMaintenance()
+        {
+            return 0;
+        }   
+
+
         public static function endpoint()
         {
             $str = config('app.api');
