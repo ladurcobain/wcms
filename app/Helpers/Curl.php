@@ -8,7 +8,7 @@
 
         public static function statMaintenance()
         {
-            return 1;
+            return 0;
         }   
 
 
