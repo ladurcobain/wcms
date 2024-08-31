@@ -66,7 +66,7 @@ else {
     Route::post('ajax/set-contactus', [AjaxController::class, 'set_contactus']);
     Route::post('ajax/set-rating', [AjaxController::class, 'set_rating']);
     Route::post('ajax/process-rating', [AjaxController::class, 'process_rating']);
-
+    Route::get('ajax/refresh-captcha',  [AjaxController::class, 'refreshCaptcha'])->name('refresh-captcha');
 
     Route::get('home', [HomeController::class, 'index'])->name('home.index');
     Route::get('contact-us', [ContactUsController::class, 'index'])->name('contactus.index');

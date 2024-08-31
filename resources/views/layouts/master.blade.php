@@ -65,7 +65,7 @@
                 $('#ratingDescription').val('');
             }
         }).done(function(data) {
-            if (data.status) {
+            if (data.status == "success") {
                 document.getElementById("ratingSuccess").classList.remove("d-none");
                 document.getElementById("ratingSuccess").classList.add("d-block");
 
@@ -301,6 +301,17 @@
                                             <input type="text" class="rating-invisible" value="5" title="" name="value"
                                                 data-plugin-star-rating
                                                 data-plugin-options="{'showCaption': true, 'color': 'dark', 'size':'sm'}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col">
+                                        <div class="position-relative">
+                                            <img src="{{ URL::to('/') }}/ajax/refresh-captcha" class="img-fluid position-relative" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col">
+                                        <div class="position-relative">
+                                            <i class="icons icon-puzzle text-color-primary text-3 position-absolute left-15 top-15"></i>
+                                            <input type="text" name="captcha" maxlength="5" class="form-control text-3 h-auto py-2" autocomplete="off" placeholder ="Masukkan kode Captcha" required OnKeyUp="checkCaptcha(this.value);" />
                                         </div>
                                     </div>
                                     <div class="form-group col">

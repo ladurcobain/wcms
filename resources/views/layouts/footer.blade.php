@@ -16,7 +16,7 @@
                 $('#newsletterEmail').val('');
             }
         }).done(function(data) {
-            if(data.status) {
+            if (data.status == "success") {
                 document.getElementById("newsletterSuccess").classList.remove("d-none");
                 document.getElementById("newsletterSuccess").classList.add("d-block");
 

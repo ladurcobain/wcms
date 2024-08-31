@@ -333,6 +333,17 @@
                                 </div>
                                 <div class="form-group col">
                                     <div class="position-relative">
+                                        <img src="{{ URL::to('/') }}/ajax/refresh-captcha" class="img-fluid position-relative" />
+                                    </div>
+                                </div>
+                                <div class="form-group col">
+                                    <div class="position-relative">
+                                        <i class="icons icon-puzzle text-color-primary text-3 position-absolute left-15 top-15"></i>
+                                        <input type="text" name="captcha" maxlength="5" class="form-control text-3 h-auto py-2" autocomplete="off" placeholder ="Masukkan kode Captcha" required OnKeyUp="checkCaptcha(this.value);" />
+                                    </div>
+                                </div>
+                                <div class="form-group col">
+                                    <div class="position-relative">
                                         <i
                                             class="icons icon-note text-color-primary text-3 position-absolute left-15 top-15"></i>
                                         <textarea maxlength="5000" rows="3" class="form-control text-3 h-auto py-2"
