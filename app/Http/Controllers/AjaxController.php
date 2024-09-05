@@ -202,4 +202,13 @@ class AjaxController extends Controller
         imagestring($pic,10,30,5,$captcha,$text_color);
         imagejpeg($pic);
     }
+
+    public function response()
+    {
+        $arr = array(
+            'status' => '1'
+        );
+
+        echo json_encode($arr);
+    }
 }
