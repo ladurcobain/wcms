@@ -61,30 +61,39 @@ class AjaxController extends Controller
         $subject = $request->subject;
         $message = $request->message;
         $module  = $request->module;
+        
+        $captcha     = $request->captcha;
+        $sesi        = session('captcha');;
 
-        if (($slug != "") && ($name != "") && ($email != "") && ($subject != "") && ($message != "")) {
-            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $uri = Curl::endpoint();
-                $url = $uri . '/' . 'v1/set-contactus';
-                $param = array(
-                    'slug'    => $slug,
-                    'name'    => $name,
-                    'email'   => $email,
-                    'subject' => $subject,
-                    'message' => $message
-                );
-
-                $res = Curl::requestPost($url, $param);
-
-                $status  = 'success';
-                $message = $res->message;
+        if($sesi == $captcha) {
+            if (($slug != "") && ($name != "") && ($email != "") && ($subject != "") && ($message != "")) {
+                if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $uri = Curl::endpoint();
+                    $url = $uri . '/' . 'v1/set-contactus';
+                    $param = array(
+                        'slug'    => $slug,
+                        'name'    => $name,
+                        'email'   => $email,
+                        'subject' => $subject,
+                        'message' => $message
+                    );
+    
+                    $res = Curl::requestPost($url, $param);
+    
+                    $status  = 'success';
+                    $message = $res->message;
+                } else {
+                    $status  = "error";
+                    $message = "Kesalahan format surel";
+                }
             } else {
                 $status  = "error";
-                $message = "Kesalahan format surel";
+                $message = "Form isian harap di lengkapi";
             }
-        } else {
+        }
+        else {
             $status  = "error";
-            $message = "Form isian harap di lengkapi";
+            $message = "Kode Captcha salah";
         }
 
         $data = array(
@@ -210,5 +219,19 @@ class AjaxController extends Controller
         );
 
         echo json_encode($arr);
+    }
+
+    public function contactCaptcha()
+    {
+        $captcha = substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyz"),0,5); // string yang akan diacak membentuk captcha 0-z dan sebanyak 6 karakter
+        Session::put('captcha', $captcha);
+        
+        $pic = imagecreate(300,50);// ukuran kotak width=60 dan height=20
+        $box_color = imagecolorallocate($pic, 0, 172, 105); // membuat warna box
+        $text_color = imagecolorallocate($pic,255,255,255); // membuat warna tulisan
+        
+        imagefilledrectangle($pic,0,0,50,20,$box_color);
+        imagestring($pic,10,30,5,$captcha,$text_color);
+        imagejpeg($pic);
     }
 }

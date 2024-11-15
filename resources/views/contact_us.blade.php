@@ -64,6 +64,21 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="form-group col-lg-6">
+                            <div class="row">
+                                <div class="form-group col-lg-3">
+                                    <img src="{{ URL::to('/') }}/ajax/refresh-captcha" class="img-fluid position-relative" style="width:140px;float:left;" />
+                                </div> 
+                                <div class="form-group col-lg-9">   
+                                    <input type="text" name="captcha" maxlength="5" class="form-control text-3 h-auto py-2" autocomplete="off" placeholder ="Masukkan kode Captcha" required OnKeyUp="checkCaptcha(this.value);" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-6"></div>
+                    </div>
+
+                    
+                    <div class="row">
                         <div class="form-group col">
                             <button class="btn btn-default btn-modern" type="reset"><strong>Batal!</strong></button>
                             <button data-loading-text="Loading ..." class="btn btn-primary btn-modern" id="contactusButton"
