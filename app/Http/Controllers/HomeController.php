@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     private $title = "Beranda";
     private $subtitle = "";
-    private $version  = "1.2.1";
+    private $version  = "3.0.1";
 
     public function index($slug="")
     {
