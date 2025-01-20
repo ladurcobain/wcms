@@ -133,7 +133,7 @@
             <ul class="dropdown-menu">
                 <?php foreach($child as $rows) : ?>
                 <?php if (in_array($rows->menu_id, $access)) { ?>
-                <li><a <?php echo Request::is('*'. $rows->menu_active.'*') ? 'style="background-color: #00AC69; color: #fff;"' : ''; ?>  class="dropdown-item" href="<?php echo url($rows->menu_url) ?>"><?php echo Session::get('flag') == 'uk'? $rows->menu_label : $rows->menu_name; ?></a></li>
+                <li><a <?php echo Request::is('*'. $rows->menu_active.'*') ? 'style="background-color: #00AC69; color: #fff;"' : ''; ?>  class="dropdown-item" target='<?php echo (($rows->menu_id == 51)?"_blank":""); ?>' href="<?php echo (($rows->menu_id == 51)?"https://jdih.kejaksaan.go.id/":url($rows->menu_url)); ?>"><?php echo Session::get('flag') == 'uk'? $rows->menu_label : $rows->menu_name; ?></a></li>
                 <?php } ?>
                 <?php endforeach; ?>
             </ul>
