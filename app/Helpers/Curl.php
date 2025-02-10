@@ -14,7 +14,7 @@
 
         public static function endpoint()
         {
-            $str = config('https://apiwebphada.kejagungri.info/api');
+            $str = 'https://apiwebphada.kejagungri.info/api';//config('app.api');
             return $str;
         }   
 
